@@ -9,15 +9,17 @@ Ability to render multiple spheres with different colors.
 
 ## Instructions to Run the Code
 These instructions will work for all platforms (Windows, macOS, Linux) as long as you have Java installed and properly set up.
-
-Clone the Repository:
+```
+# Clone the Repository:
 git clone <repository-url>
-cd <repository-folder>
+cd <repository-folder>```
 
-### Compile the Code: Use javac to compile all .java files:
-bash
+# Compile the Code: Use javac to compile all .java files:
 javac *.java
-### Run the Code: Run the raytracing class using java:
-bash
+# Run the Code: Run the raytracing class using java:
 java raytracing
-## Output: The rendered image will be saved in the current directory as output.png.
+```
+
+
+
+# Output: The rendered image will be saved in the current directory as output.png.
