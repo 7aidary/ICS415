@@ -8,6 +8,8 @@ Adjustable canvas size and viewport dimensions.
 Ability to render multiple spheres with different colors.
 
 ## Instructions to Run the Code
+These instructions will work for all platforms (Windows, macOS, Linux) as long as you have Java installed and properly set up.
+
 Clone the Repository:
 git clone <repository-url>
 cd <repository-folder>
