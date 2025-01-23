@@ -3,7 +3,6 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 class LightRaytracing  {
@@ -13,7 +12,7 @@ class LightRaytracing  {
     static final double PROJECTION_PLANE_Z = 1.0;
     static final int BACKGROUND_COLOR =0xFFFFFF ; // white
 
-    private List<Light> sceneLights;
+    private final List<Light> sceneLights;
 
     List<Sphere> spheres = new ArrayList<>();
 
@@ -146,19 +145,7 @@ class LightRaytracing  {
 
         ImageIO.write(image, "png", new File(filename));
     }
-    /* type = ambient
-             intensity = 0.2
- }
-     light {
-         type = point
-         intensity = 0.6
-         position = (2, 1, 0)
-     }
-     light {
-         type = directional
-         intensity = 0.2
-         direction = (1, 4, 4)
-*/
+
 
     public static void main(String[] args) throws IOException {
         Light.AmbientLight ambientLight = new Light.AmbientLight(0.2);
