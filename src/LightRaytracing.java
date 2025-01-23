@@ -92,7 +92,7 @@ class LightRaytracing  {
                 L = pointLight.getPosition().subtract(P); // Direction from point to light
             } else if (light instanceof Light.DirectionalLight) {
                 Light.DirectionalLight directionalLight = (Light.DirectionalLight) light; // Downcast to DirectionalLight
-                L = directionalLight.getDirection(); // Predefined direction
+                L = directionalLight.getDirection();
             }
 
             if (L == null) continue; // Skip if L is not set (unlikely but ensures safety)
