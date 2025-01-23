@@ -31,4 +31,10 @@ class Vector3D {
         double len = length();
         return new Vector3D(x / len, y / len, z / len);
     }
+
+
+    // Negate function
+    public Vector3D negate() {
+        return new Vector3D(-this.x, -this.y, -this.z);
+    }
 }

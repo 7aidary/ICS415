@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
- class raytracing  {
+class raytracing  {
     static final int WIDTH = 800;  // Canvas width
     static final int HEIGHT = 800; // Canvas height
     static final double VIEWPORT_SIZE = 1.0;
