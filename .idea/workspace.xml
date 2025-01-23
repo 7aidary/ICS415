@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment="Assignment1">
-      <change afterPath="$PROJECT_DIR$/src/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LightRaytracing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reaytracing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reaytracing.java" afterDir="false" />
+    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment=" Assignment2">
+      <change beforePath="$PROJECT_DIR$/src/LightRaytracing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LightRaytracing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,64 +54,75 @@
       <option name="project" value="LOCAL؜" />
       <updated>1736963338319</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL؜-٠٠٠٠٢" summary="Assignment1 and Assignment2">
+      <created>1737654577652</created>
+      <option name="number" value="٠٠٠٠٢" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٢" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1737654577652</updated>
+    </task>
+    <task id="LOCAL؜-٠٠٠٠٣" summary=" Assignment2">
+      <created>1737654741217</created>
+      <option name="number" value="٠٠٠٠٣" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٣" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1737654741217</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Assignment1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assignment1" />
+    <MESSAGE value="Assignment1 and Assignment2" />
+    <MESSAGE value=" Assignment2" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Assignment2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/reaytracing.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>60</line>
+          <line>62</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>55</line>
+          <line>57</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>56</line>
+          <line>58</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>52</line>
+          <line>54</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>47</line>
+          <line>49</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>48</line>
+          <line>50</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>62</line>
+          <line>64</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sphere.java</url>
-          <line>63</line>
+          <line>65</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
