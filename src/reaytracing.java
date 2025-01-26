@@ -18,7 +18,7 @@ class raytracing  {
         // Add spheres to the scene
         spheres.add(new Sphere(new Vector3D(0, -1, 3), 1, 0xFF0000)); // Red sphere
         spheres.add(new Sphere(new Vector3D(2, 0, 4), 1, 0x00FF00)); // Green sphere
-        spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF)); // Blue sphere
+        spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF));// Blue sphere
     }
 
     public Vector3D canvasToViewport(int x, int y) {

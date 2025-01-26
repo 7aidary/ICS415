@@ -37,4 +37,9 @@ class Vector3D {
     public Vector3D negate() {
         return new Vector3D(-this.x, -this.y, -this.z);
     }
+
+   public static Vector3D reflectRay(Vector3D L, Vector3D N) {
+        return N.multiply(2*N.dot(L)).subtract(L);
+    }
 }
+

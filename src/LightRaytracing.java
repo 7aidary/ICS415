@@ -138,7 +138,7 @@ class LightRaytracing  {
             for (int y = -HEIGHT / 2; y < HEIGHT / 2; y++) {
                 Vector3D direction = canvasToViewport(x, y).normalize();
                 int color = (int) traceRay(new Vector3D(0, 0, 0), direction, 1, Double.POSITIVE_INFINITY);
-                //System.out.println(Integer.parseInt(color.rgbToHex()));
+                System.out.println(color);
                 image.setRGB(x + WIDTH / 2, HEIGHT / 2 - y - 1, color);
             }
         }
