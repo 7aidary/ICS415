@@ -33,6 +33,8 @@ class Vector3D {
     }
 
 
+
+
     // Negate function
     public Vector3D negate() {
         return new Vector3D(-this.x, -this.y, -this.z);

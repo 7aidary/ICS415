@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment=" assignment2">
-      <change afterPath="$PROJECT_DIR$/src/ShadowAndReflections.java" afterDir="false" />
+    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment=" assignment3">
+      <change afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StanfordBunny3D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LightRaytracing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LightRaytracing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ICS415.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ICS415.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShadowAndReflections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShadowAndReflections.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sphere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reaytracing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reaytracing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,19 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/abood/IdeaProjects/ICS415",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "module"
     ]
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -93,15 +102,34 @@
       <option name="project" value="LOCAL؜" />
       <updated>1737654914050</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL؜-٠٠٠٠٦" summary=" assignment3">
+      <created>1737929650916</created>
+      <option name="number" value="٠٠٠٠٦" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٦" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1737929650916</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Assignment1" />
     <MESSAGE value="Assignment1 and Assignment2" />
     <MESSAGE value=" Assignment2" />
     <MESSAGE value=" assignment2" />
-    <option name="LAST_COMMIT_MESSAGE" value=" assignment2" />
+    <MESSAGE value=" assignment3" />
+    <option name="LAST_COMMIT_MESSAGE" value=" assignment3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

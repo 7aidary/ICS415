@@ -11,7 +11,7 @@ public class ShadowAndReflections {
     static final int HEIGHT = 800; // Canvas height
     static final double VIEWPORT_SIZE = 1.0;
     static final double PROJECTION_PLANE_Z = 1.0;
-    static final int BACKGROUND_COLOR =0x000000 ; // Black
+    static final int BACKGROUND_COLOR =0xFFFFFF ; // Black
 
     private final List<Light> sceneLights;
 
