@@ -17,5 +17,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="jre-stubs" level="project" />
+    <orderEntry type="library" name="joml" level="project" />
   </component>
 </module>

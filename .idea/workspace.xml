@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment=" assignment3">
-      <change afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StanfordBunny3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" afterDir="false" />
+    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment=" assignment4">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/joml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jre_stubs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jre_stubs__2_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ICS415.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ICS415.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShadowAndReflections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShadowAndReflections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector3D.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +30,34 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,10 +70,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/abood/IdeaProjects/ICS415",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "vcs.Git"
@@ -109,7 +141,14 @@
       <option name="project" value="LOCAL؜" />
       <updated>1737929650916</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL؜-٠٠٠٠٧" summary=" assignment4">
+      <created>1738278351080</created>
+      <option name="number" value="٠٠٠٠٧" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠٠٧" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1738278351080</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +168,8 @@
     <MESSAGE value=" Assignment2" />
     <MESSAGE value=" assignment2" />
     <MESSAGE value=" assignment3" />
-    <option name="LAST_COMMIT_MESSAGE" value=" assignment3" />
+    <MESSAGE value=" assignment4" />
+    <option name="LAST_COMMIT_MESSAGE" value=" assignment4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
