@@ -1,4 +1,5 @@
 import org.joml.Matrix4f;
+import org.joml.Vector4f;
 
 public class Sphere {
     Vector3D center;
@@ -56,31 +57,40 @@ public class Sphere {
 
 
 
-        public Sphere(Vector3D center, double radius, int color,int specular, double reflective, double refraction,double transparency, Matrix4f transform) {
-            this.center = center;
-            this.radius = radius;
-            this.color = color;
-            this.reflective = reflective;
-            this.transparency = transparency;
-            this.refraction = refraction;
-            this.specular = specular;
+    public Sphere(Vector3D center, double radius, int color, int specular, double reflective, double refraction, double transparency, Matrix4f transform) {
+        this.center = center;
+        this.radius = radius;
+        this.color = color;
+        this.reflective = reflective;
+        this.transparency = transparency;
+        this.refraction = refraction;
+        this.specular = specular;
 
-            this.transformMatrix = new Matrix4f().identity(); // Default identity matrix
-            this.inverseTransform = new Matrix4f().identity();
-            // Apply the transformation matrix
-            this.transformMatrix = new Matrix4f(transform);
-
-            // Compute the inverse transformation matrix
-            this.inverseTransform = new Matrix4f(transform).invert();
-        }
-
-        // Apply transformations
-
-        public void setTransformation(Matrix4f transformation) {
-            this.transformMatrix = transformation;
-            this.inverseTransform = new Matrix4f(transformation).invert(); // Precompute inverse
-        }
+        setTransformation(transform); // تحديث المركز ونصف القطر بعد التحويل
     }
+
+
+    // Apply transformations
+
+    public void setTransformation(Matrix4f transformation) {
+        this.transformMatrix = transformation;
+        this.inverseTransform = new Matrix4f(transformation).invert(); // Precompute inverse
+
+        // تحديث المركز بعد التحويل
+        Vector4f newCenter = new Vector4f((float) center.x, (float) center.y, (float) center.z, 1.0f);
+        newCenter.mul(transformMatrix);
+        this.center = new Vector3D(newCenter.x, newCenter.y, newCenter.z);
+
+        // تحديث نصف القطر بناءً على التحجيم
+        float scaleX = transformMatrix.get(0, 0);
+        float scaleY = transformMatrix.get(1, 1);
+        float scaleZ = transformMatrix.get(2, 2);
+        float scaleFactor = (float) Math.sqrt((scaleX * scaleX + scaleY * scaleY + scaleZ * scaleZ) / 3.0); // متوسط التحجيم
+
+        this.radius *= scaleFactor; // تطبيق التحجيم على نصف القطر
+    }
+
+}
 
 
 

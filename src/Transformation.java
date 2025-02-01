@@ -1,6 +1,5 @@
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Vector4f;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,9 +21,9 @@ public class Transformation {
 
     public Transformation(List<Light> sceneLights, Camera camera) {
         Matrix4f globalTransform = new Matrix4f()
-                .translate(1, 0, 0) // Example translation
-                .rotateY((float) Math.toRadians(30)) // Example rotation
-                .scale(2.0f); // Example scaling
+                .translate(1, 5, 0) // Example translation
+                .rotateY((float) Math.toRadians(0)) // Example rotation
+                .scale(1.0f); // Example scaling
 
         spheres.add(new Sphere(new Vector3D(0, -1, 3), 1, 0xFF0000, 100, 0.2, 1.5, 0.0, globalTransform));
         spheres.add(new Sphere(new Vector3D(2, 0, 4), 1, 0x00FF00, 0, 0.3, 1, 1.0, globalTransform));
@@ -35,71 +34,57 @@ public class Transformation {
         this.camera = camera;
     }
 
-    public double traceRay(Vector3D origin, Vector3D direction, double tMin, double tMax, int recursionDepth) {
-        if (recursionDepth <= 0) {
+    public double traceRay(Vector3D origin, Vector3D direction, double tMin, double tMax, int recursion_depth) {
+        if (recursion_depth <= 0) {
+            return BACKGROUND_COLOR; // Stop recursion if depth is 0
+        }
+
+        IntersectionResult result = closestIntersection(origin, direction, tMin, tMax);
+
+        // If no sphere was hit, return the background color
+        if (result.closestSphere == null) {
+
             return BACKGROUND_COLOR;
         }
+        // Compute intersection point and normal
+        Vector3D P = origin.add(direction.multiply(result.closestT)); // P = O + closest_t * D
+        Vector3D N = P.subtract(result.closestSphere.center).normalize(); // N = (P - center).normalize()
 
-        Sphere closestSphere = null;
-        double closestT = Double.POSITIVE_INFINITY;
+        double lightIntensity = computeLighting(P, N, direction.negate(), result.closestSphere.specular);
+        // Compute lighting and return the color
+        int localColor = applyLighting(result.closestSphere.color, lightIntensity);
 
-        for (Sphere sphere : spheres) {
-            Matrix4f inverseTransform = sphere.inverseTransform;
-            Vector4f localOrigin = new Vector4f((float) origin.x, (float) origin.y, (float) origin.z, 1.0f);
-            Vector4f localDirection = new Vector4f((float) direction.x, (float) direction.y, (float) direction.z, 0.0f);
+        double r = result.closestSphere.reflective;
+        double transparency = result.closestSphere.transparency;
 
-            localOrigin.mul(inverseTransform);
-            localDirection.mulProject(inverseTransform);
-
-            Vector3D transformedOrigin = new Vector3D(localOrigin.x, localOrigin.y, localOrigin.z);
-            Vector3D transformedDirection = new Vector3D(localDirection.x, localDirection.y, localDirection.z).normalize();
-
-            double[] ts = intersectRaySphere(transformedOrigin, transformedDirection, sphere);
-            if (ts != null) {
-                for (double t : ts) {
-                    if (t > tMin && t < closestT) {
-                        closestT = t;
-                        closestSphere = sphere;
-                    }
-                }
-            }
+        // If no reflection or transparency, return local color
+        if (recursion_depth <= 0 || (r <= 0 && transparency <= 0)) {
+            return localColor;
         }
 
-        if (closestSphere == null) {
-            return BACKGROUND_COLOR;
+        // Reflection computation
+        int reflectedColor = 0;
+        if (r > 0) {
+            Vector3D R = Vector3D.reflectRay(direction.normalize().negate(), N);
+            reflectedColor = (int) traceRay(P, R, 0.001, Double.POSITIVE_INFINITY, recursion_depth - 1);
         }
 
-        Vector4f P4 = new Vector4f(
-                (float) (origin.x + closestT * direction.x),
-                (float) (origin.y + closestT * direction.y),
-                (float) (origin.z + closestT * direction.z),
-                1.0f
-        );
-        P4.mul(closestSphere.transformMatrix);
-        Vector3D P = new Vector3D(P4.x, P4.y, P4.z);
-
-        Vector3D localNormal = P.subtract(closestSphere.center).normalize();
-        Vector4f normal4 = new Vector4f((float) localNormal.x, (float) localNormal.y, (float) localNormal.z, 0.0f);
-        normal4.mulProject(closestSphere.transformMatrix);
-        Vector3D N = new Vector3D(normal4.x, normal4.y, normal4.z).normalize();
-
-        double lightIntensity = computeLighting(P, N, direction.negate(), closestSphere.specular);
-        int localColor = applyLighting(closestSphere.color, lightIntensity);
-
-        // Transparency Handling
-        if (closestSphere.transparency > 0) {
-            // Compute the refraction direction if the material is transparent
-            Vector3D refractedDirection = computeRefraction(direction, N, closestSphere.refraction);
-
-            // Recursively trace the refracted ray
-            int refractedColor = (int) traceRay(P, refractedDirection, 0.001, Double.POSITIVE_INFINITY, recursionDepth - 1);
-
-            // Blend the refracted color with the local color based on transparency
-            localColor = blendColors(localColor, refractedColor, closestSphere.transparency);
+        // Transparency and refraction calculation
+        int refractedColor = 0;
+        if (transparency > 0) {
+            Vector3D T = computeRefraction(direction, N, result.closestSphere.refraction);
+            refractedColor = (int) traceRay(P, T, 0.001, Double.POSITIVE_INFINITY, recursion_depth - 1);
         }
 
-        return localColor;
+        // Blend the local, reflected, and refracted colors based on the transparency/reflection properties
+        int blendedColor = blendColors(localColor, reflectedColor, r); // First blend local + reflection
+        blendedColor = blendColors(blendedColor, refractedColor, transparency); // Then blend with refraction
+
+        // Combine the local, reflected, and refracted colors based on the transparency/reflection properties
+        return blendedColor;
     }
+
+
 
     public double[] intersectRaySphere(Vector3D origin, Vector3D direction, Sphere sphere) {
         Vector3D CO = origin.subtract(sphere.center);
@@ -158,7 +143,6 @@ public class Transformation {
 
         return intensity;
     }
-
     public IntersectionResult closestIntersection(Vector3D O, Vector3D D, double tMin, double tMax) {
         double closestT = Double.POSITIVE_INFINITY;
         Sphere closestSphere = null;
@@ -176,6 +160,7 @@ public class Transformation {
         }
         return new IntersectionResult(closestSphere, closestT);
     }
+
 
     public Vector3D computeRefraction(Vector3D direction, Vector3D normal, double refractionIndex) {
         // Calculate the refractive index ratio (n1 / n2)

@@ -21,9 +21,9 @@ public class TransparencyAndRefraction {
 
     public TransparencyAndRefraction(List<Light> sceneLights, Camera camera) {
         this.camera = camera;
-        spheres.add(new Sphere(new Vector3D(0, -1, 3), 1, 0xFF0000, 100, 0.2, 1.5, 0.0));
-        spheres.add(new Sphere(new Vector3D(2, 0, 4), 1, 0x00FF00, 20, 0.3, 1.0, 1.0));
-        spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF, 10, 0.4, 1.5, 0.0));
+        spheres.add(new Sphere(new Vector3D(0, -1, 3), 1, 0xFF0000, 100, 0.2, 0.2, 0.0));
+        spheres.add(new Sphere(new Vector3D(2, 0, 4), 1, 0x00FF00, 20, 0.3, 1.0, 0.4));
+        spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF, 10, 0.4, 1.5, 0.3));
         spheres.add(new Sphere(new Vector3D(0, -5001, 0), 5000, 0xFFFF00, 1000, 0.5, 0.20, 0.0));
         this.sceneLights = sceneLights;
     }
@@ -72,8 +72,12 @@ public class TransparencyAndRefraction {
             refractedColor = (int) traceRay(P, T, 0.001, Double.POSITIVE_INFINITY, recursion_depth - 1);
         }
 
+        // Blend the local, reflected, and refracted colors based on the transparency/reflection properties
+        int blendedColor = blendColors(localColor, reflectedColor, r); // First blend local + reflection
+        blendedColor = blendColors(blendedColor, refractedColor, transparency); // Then blend with refraction
+
         // Combine the local, reflected, and refracted colors based on the transparency/reflection properties
-        return blendColors(localColor, reflectedColor, r);
+        return blendedColor;
     }
 
     public double[] intersectRaySphere(Vector3D origin, Vector3D direction, Sphere sphere) {
