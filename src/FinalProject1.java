@@ -8,32 +8,48 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transformation {
-    static final int WIDTH = 800;
-    static final int HEIGHT = 800;
+public class FinalProject1 {
+    static final int WIDTH = 100;
+    static final int HEIGHT = 100;
     static final double VIEWPORT_SIZE = 1.0;
     static final double PROJECTION_PLANE_Z = 1.0;
-    static final int BACKGROUND_COLOR = 0x000000;
+    static final int BACKGROUND_COLOR = 0xFFFFFF;
 
     private final List<Light> sceneLights;
     private final List<Sphere> spheres = new ArrayList<>();
+
+    private  List<Triangle> triangles;
+    private  final List<Cylinder> cylinders=new ArrayList<>();
+
+
     private Camera camera;
 
-    public Transformation(List<Light> sceneLights, Camera camera) {
+    public FinalProject1(List<Light> sceneLights, Camera camera,List<Triangle> triangles ) {
         Matrix4d globalTransform = new Matrix4d()
-                .translate(0, 1, 3)
-                .scale(0.8); ;// Example translation
+                .translate(0, 0, 0)
+                .scale(1.0); ;// Example translation
 
 
         System.out.println(globalTransform);// Example scaling
 
-        spheres.add(new Sphere(new Vector3D(2, 1, 4), 1, 0xFF0000, 100, 0.2, 1.5, 0.0, globalTransform));
-        spheres.add(new Sphere(new Vector3D(0, 0, 4), 1, 0x00FF00, 50, 0.3, 1, 0.2, globalTransform));
-        spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF,40,0.4, 0.5, 0.0, globalTransform));
-        Sphere s = new Sphere(new Vector3D(0, -501, 4),500,0xFFFF00, 1000, 0, 0, 0.0,
-                new Matrix4d());
-        spheres.add(s);
-        System.out.println(s.center);
+        spheres.add(new Sphere(new Vector3D(2, 1, 4), 1, 0xFF0000, 100, 0.5, 4.2, 0.1, globalTransform));
+      //  spheres.add(new Sphere(new Vector3D(0, 0, 4), 1, 0x00FF00, 50, 0.3, 1, 0.2, globalTransform));
+     //   spheres.add(new Sphere(new Vector3D(-2, 0, 4), 1, 0x0000FF,40,0.4, 0.5, 0.0, globalTransform));
+      //  spheres.add( new Sphere(new Vector3D(0, -501, 4),500,0xFFFF00, 1000, 0, 0, 0.0,new Matrix4d()));
+
+    this.triangles=triangles;
+
+       /* cylinders.add(new Cylinder(
+                new Vector3D(2, -1, 5),  // Base center
+                new Vector3D(0, 1, 0),   // Axis pointing upward
+                0.5,                     // Radius
+                2.0,                     // Height
+                0x00008B,                 // Color (Dark Blue)
+                100,                      // Specular
+                0.3,                      // Reflective
+                1,                      // Transparency
+                1.2                       // Refraction index
+        ));*/
         this.sceneLights = sceneLights;
         this.camera = camera;
     }
@@ -46,20 +62,32 @@ public class Transformation {
         IntersectionResult result = closestIntersection(origin, direction, tMin, tMax);
 
         // If no sphere was hit, return the background color
-        if (result.closestSphere == null) {
+        if (result.closestObject == null) {
 
             return BACKGROUND_COLOR;
         }
         // Compute intersection point and normal
         Vector3D P = origin.add(direction.multiply(result.closestT)); // P = O + closest_t * D
-        Vector3D N = P.subtract(result.closestSphere.center).normalize(); // N = (P - center).normalize()
+        Vector3D N = null;
 
-        double lightIntensity = computeLighting(P, N, direction.negate(), result.closestSphere.specular);
+        if (result.closestObject instanceof Sphere) {
+            Sphere sphere = (Sphere) result.closestObject;
+            N = P.subtract(sphere.center).normalize();
+        }
+        else if (result.closestObject instanceof Triangle) {
+            Triangle triangle = (Triangle) result.closestObject;
+            N = triangle.getNormal(); // Normal is precomputed
+        } else if (result.closestObject instanceof Cylinder) {
+            Cylinder cylinder = (Cylinder) result.closestObject;
+            N=cylinder.getNormal(P).normalize();
+
+        }
+        double lightIntensity = computeLighting(P, N, direction.negate(), result.closestObject.getSpecular());
         // Compute lighting and return the color
-        int localColor = applyLighting(result.closestSphere.color, lightIntensity);
+        int localColor = applyLighting(result.closestObject.getColor(), lightIntensity);
 
-        double r = result.closestSphere.reflective;
-        double transparency = result.closestSphere.transparency;
+        double r = result.closestObject.getReflective();
+        double transparency = result.closestObject.getTransparency();
 
         // If no reflection or transparency, return local color
         if (recursion_depth <= 0 || (r <= 0 && transparency <= 0)) {
@@ -76,7 +104,7 @@ public class Transformation {
         // Transparency and refraction calculation
         int refractedColor = 0;
         if (transparency > 0) {
-            Vector3D T = computeRefraction(direction, N, result.closestSphere.refraction);
+            Vector3D T = computeRefraction(direction, N, result.closestObject.getRefraction());
             refractedColor = (int) traceRay(P, T, 0.001, Double.POSITIVE_INFINITY, recursion_depth - 1);
         }
 
@@ -90,18 +118,44 @@ public class Transformation {
 
 
 
-    public double[] intersectRaySphere(Vector3D origin, Vector3D direction, Sphere sphere) {
-        Vector3D CO = origin.subtract(sphere.center);
-        double a = direction.dot(direction);
-        double b = 2 * CO.dot(direction);
-        double c = CO.dot(CO) - sphere.radius * sphere.radius;
 
-        double discriminant = b * b - 4 * a * c;
-        if (discriminant < 0) return null; // No intersection
 
-        double t1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-        double t2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-        return new double[]{t1, t2};
+    public IntersectionResult closestIntersection(Vector3D O, Vector3D D, double tMin, double tMax) {
+        double closestT = Double.POSITIVE_INFINITY;
+        SceneObject closestObject = null;
+
+        for (Sphere sphere : spheres) {
+            double[] tValues = sphere.intersectRaySphere(O, D);
+            if (tValues != null) {
+                for (double t : tValues) {
+                    if (t >= tMin && t <= tMax && t < closestT) {
+                        closestT = t;
+                        closestObject = sphere;
+                    }
+                }
+            }
+        }
+
+        for (Triangle triangle : triangles) {
+            Double tValue = triangle.intersectRayTriangle(O, D);
+            if (tValue != null && tValue >= tMin && tValue <= tMax && tValue < closestT) {
+                closestT = tValue;
+                closestObject = triangle;
+            }
+        }
+
+        for (Cylinder cylinder : cylinders) {
+            double[] tValues = cylinder.intersectRayCylinder(O, D);
+            if (tValues != null) {
+                for (double t : tValues) {
+                    if (t >= tMin && t <= tMax && t < closestT) {
+                        closestT = t;
+                        closestObject = cylinder;
+                    }
+                }
+            }
+        }
+        return new IntersectionResult(closestObject, closestT);
     }
 
     public double computeLighting(Vector3D P, Vector3D N, Vector3D V, int specular) {
@@ -124,7 +178,7 @@ public class Transformation {
                 }
 
                 IntersectionResult result = closestIntersection(P, L, 0.001, t_max);
-                if (result.closestSphere != null) {
+                if (result.closestObject != null) {
                     continue;
                 }
 
@@ -146,23 +200,6 @@ public class Transformation {
         }
 
         return intensity;
-    }
-    public IntersectionResult closestIntersection(Vector3D O, Vector3D D, double tMin, double tMax) {
-        double closestT = Double.POSITIVE_INFINITY;
-        Sphere closestSphere = null;
-
-        for (Sphere sphere : spheres) {
-            double[] tValues = intersectRaySphere(O, D, sphere);
-            if (tValues != null) {
-                for (double t : tValues) {
-                    if (t >= tMin && t <= tMax && t < closestT) {
-                        closestT = t;
-                        closestSphere = sphere;
-                    }
-                }
-            }
-        }
-        return new IntersectionResult(closestSphere, closestT);
     }
 
 
@@ -216,36 +253,74 @@ public class Transformation {
         return (r << 16) | (g << 8) | b;
     }
 
-    public void render(String filename) throws IOException {
+   /* public void render(String filename) throws IOException {
         BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-        for (int y = 0; y < HEIGHT; y++) {
-            for (int x = 0; x < WIDTH; x++) {
-                Vector3D direction = camera.getRayDirection(x - WIDTH / 2, y - HEIGHT / 2);
-                int color = (int) traceRay(camera.position, direction, 0.001, Double.POSITIVE_INFINITY, 5);
-                image.setRGB(x, y, color);
-            }
-        }
+
+        IntStream.range(0, HEIGHT).forEach(y ->
+                IntStream.range(0, WIDTH).forEach(x -> {
+                    Vector3D direction = camera.getRayDirection(x - WIDTH / 2, y - HEIGHT / 2);
+                    int color = (int) traceRay(camera.position, direction, 0.001, Double.POSITIVE_INFINITY, 3);
+                    image.setRGB(x, y, color);
+                })
+        );
+
         ImageIO.write(image, "PNG", new File(filename));
-    }
+    }*/
+   public void render(String filename) throws IOException {
+       BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+       for (int y = 0; y < HEIGHT; y++) {
+           for (int x = 0; x < WIDTH; x++) {
+               Vector3D direction = camera.getRayDirection(x - WIDTH / 2, y - HEIGHT / 2);
+               int color = (int) traceRay(camera.position, direction, 0.001, Double.POSITIVE_INFINITY, 5);
+               image.setRGB(x, y, color);
+           }
+       }
+       ImageIO.write(image, "PNG", new File(filename));
+   }
+
 
     public static void main(String[] args) throws IOException {
+         List<Triangle> triangles=new ArrayList<>();
+
         Camera camera = new Camera(new Vector3D(0, 0, 0), new Matrix3f().identity());
+      /* try {
+            triangles = OBJLoader.loadOBJ("Data/bunny.obj");
+
+        } catch (IOException e) {
+            System.err.println("Error loading model: " + e.getMessage());
+            return;
+        }
+*/
+
+        triangles.add(new Triangle(
+                new Vector3D(1, 1, 0),
+                new Vector3D(2, -1, 0),
+                new Vector3D(0, -1, 0),
+                0x00FF00, // Green color
+                50,
+                0.3,
+                0.2,
+                1.3,
+                new Matrix4d()
+        ));
         List<Light> lights = new ArrayList<>();
         lights.add(new Light.AmbientLight(0.2));
         lights.add(new Light.PointLight(0.6, new Vector3D(2, 1, 0)));
         lights.add(new Light.DirectionalLight(0.2, new Vector3D(1, 4, 4)));
 
-        Transformation rayTracer = new Transformation(lights, camera);
-        rayTracer.render("output5.png");
+        FinalProject1 rayTracer = new FinalProject1(lights, camera, triangles);
+        rayTracer.render("output6.png");
     }
 
     public static class IntersectionResult {
-        public Sphere closestSphere;
+        public SceneObject closestObject;
         public double closestT;
 
-        public IntersectionResult(Sphere closestSphere, double closestT) {
-            this.closestSphere = closestSphere;
+        public IntersectionResult(SceneObject closestObject, double closestT) {
+            this.closestObject = closestObject;
             this.closestT = closestT;
         }
     }
+
+
 }

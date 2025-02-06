@@ -1,7 +1,6 @@
-import org.joml.Matrix4f;
-import org.joml.Vector4f;
+import org.joml.Matrix4d;
 
-public class Sphere {
+public class Sphere implements SceneObject {
     Vector3D center;
     double radius;
     int color;
@@ -12,8 +11,8 @@ public class Sphere {
     double refraction;
      double transparency; // Transparency (0.0 - 1.0, where 1.0 is fully transparent)
 
-    public Matrix4f transformMatrix;
-    public Matrix4f inverseTransform;
+    public Matrix4d transformMatrix;
+    public Matrix4d inverseTransform;
 
     // constructor for Ass1
     public Sphere(Vector3D center, double radius, int color) {
@@ -57,7 +56,7 @@ public class Sphere {
 
 
 
-    public Sphere(Vector3D center, double radius, int color, int specular, double reflective, double refraction, double transparency, Matrix4f transform) {
+    public Sphere(Vector3D center, double radius, int color, int specular, double reflective, double refraction, double transparency, Matrix4d transformMatrix) {
         this.center = center;
         this.radius = radius;
         this.color = color;
@@ -65,30 +64,81 @@ public class Sphere {
         this.transparency = transparency;
         this.refraction = refraction;
         this.specular = specular;
+        transform(transformMatrix);
+    }
+    public void transform(Matrix4d transformMatrix){
+        Double scale = transformMatrix.get(0,0);
 
-        setTransformation(transform); // تحديث المركز ونصف القطر بعد التحويل
+        transformMatrix.m00(1);
+        transformMatrix.m11(1);
+        transformMatrix.m22(1);
+
+        this.radius*=scale;
+        this.center= new Vector3D(transformMatrix.transform(center));
+
+        transformMatrix.m00(scale);
+        transformMatrix.m11(scale);
+        transformMatrix.m22(scale);
+
+    }
+
+
+
+    public double[] intersectRaySphere(Vector3D origin, Vector3D direction) {
+        Vector3D CO = origin.subtract(this.center);
+        double a = direction.dot(direction);
+        double b = 2 * CO.dot(direction);
+        double c = CO.dot(CO) - this.radius * this.radius;
+
+        double discriminant = b * b - 4 * a * c;
+        if (discriminant < 0) return null; // No intersection
+
+        double t1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        double t2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return new double[]{t1, t2};
+    }
+
+    @Override
+    public double intersectRay(Vector3D rayOrigin, Vector3D rayDirection) {
+
+        this.intersectRaySphere(rayOrigin,rayDirection);
+        return Double.parseDouble(null);
+        }
+
+
+
+
+
+
+    @Override
+    public int getColor() {
+        return this.color;
+    }
+
+    @Override
+    public int getSpecular() {
+        return this.specular;
+    }
+
+    @Override
+    public double getReflective() {
+        return this.reflective;
+    }
+
+    @Override
+    public double getTransparency() {
+        return this.transparency;
+    }
+
+    @Override
+    public double getRefraction() {
+        return this.refraction;
     }
 
 
     // Apply transformations
 
-    public void setTransformation(Matrix4f transformation) {
-        this.transformMatrix = transformation;
-        this.inverseTransform = new Matrix4f(transformation).invert(); // Precompute inverse
 
-        // تحديث المركز بعد التحويل
-        Vector4f newCenter = new Vector4f((float) center.x, (float) center.y, (float) center.z, 1.0f);
-        newCenter.mul(transformMatrix);
-        this.center = new Vector3D(newCenter.x, newCenter.y, newCenter.z);
-
-        // تحديث نصف القطر بناءً على التحجيم
-        float scaleX = transformMatrix.get(0, 0);
-        float scaleY = transformMatrix.get(1, 1);
-        float scaleZ = transformMatrix.get(2, 2);
-        float scaleFactor = (float) Math.sqrt((scaleX * scaleX + scaleY * scaleY + scaleZ * scaleZ) / 3.0); // متوسط التحجيم
-
-        this.radius *= scaleFactor; // تطبيق التحجيم على نصف القطر
-    }
 
 }
 

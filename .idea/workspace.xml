@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment="currepted Transformation">
+    <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment="Another currepted Transformation">
+      <change afterPath="$PROJECT_DIR$/Data/bunny.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cylinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FinalProject1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OBJLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SceneObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StanfordBunny3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StanfordBunny3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Transformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector3D.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,33 +68,44 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2rcn9kBw0gNYlAoYV57LfFOEa0I" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/abood/IdeaProjects/ICS415&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/abood/IdeaProjects/ICS415/src",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "module"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\abood\IdeaProjects\ICS415\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abood\IdeaProjects\ICS415\Data" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -158,7 +178,14 @@
       <option name="project" value="LOCAL؜" />
       <updated>1738425755950</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL؜-٠٠٠١٠" summary="Another currepted Transformation">
+      <created>1738437288768</created>
+      <option name="number" value="٠٠٠١٠" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠١٠" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1738437288768</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +200,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Assignment1" />
     <MESSAGE value="Assignment1 and Assignment2" />
     <MESSAGE value=" Assignment2" />
@@ -181,7 +209,8 @@
     <MESSAGE value=" assignment4" />
     <MESSAGE value="Camera class" />
     <MESSAGE value="currepted Transformation" />
-    <option name="LAST_COMMIT_MESSAGE" value="currepted Transformation" />
+    <MESSAGE value="Another currepted Transformation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Another currepted Transformation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,6 +269,31 @@
           <url>file://$PROJECT_DIR$/src/reaytracing.java</url>
           <line>32</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Transformation.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Transformation.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Transformation.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Transformation.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/OBJLoader.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
