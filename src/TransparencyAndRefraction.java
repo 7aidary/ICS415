@@ -1,5 +1,3 @@
-import org.joml.Matrix3f;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -219,7 +217,7 @@ public class TransparencyAndRefraction {
 
 
 
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         Camera camera = new Camera(new Vector3D(0, 0,0), new Matrix3f().identity());
         List<Light> lights = new ArrayList<>();
         lights.add(new Light.AmbientLight(0.2));
@@ -228,7 +226,7 @@ public class TransparencyAndRefraction {
 
         TransparencyAndRefraction rayTracer = new TransparencyAndRefraction(lights, camera);
         rayTracer.render("output4.png");
-    }
+    }*/
 
     public static class IntersectionResult {
         public Sphere closestSphere;

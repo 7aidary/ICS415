@@ -1,4 +1,4 @@
-import org.joml.Matrix3f;
+import org.joml.Matrix3d;
 import org.joml.Matrix4d;
 
 import javax.imageio.ImageIO;
@@ -220,7 +220,7 @@ public class Transformation {
         BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
-                Vector3D direction = camera.getRayDirection(x - WIDTH / 2, y - HEIGHT / 2);
+                Vector3D direction = camera.getRayDirection3(x - WIDTH / 2, y - HEIGHT / 2);
                 int color = (int) traceRay(camera.position, direction, 0.001, Double.POSITIVE_INFINITY, 5);
                 image.setRGB(x, y, color);
             }
@@ -229,7 +229,8 @@ public class Transformation {
     }
 
     public static void main(String[] args) throws IOException {
-        Camera camera = new Camera(new Vector3D(0, 0, 0), new Matrix3f().identity());
+
+        Camera camera = new Camera(new Vector3D(0, 0, 0), new Matrix3d().identity());
         List<Light> lights = new ArrayList<>();
         lights.add(new Light.AmbientLight(0.2));
         lights.add(new Light.PointLight(0.6, new Vector3D(2, 1, 0)));
