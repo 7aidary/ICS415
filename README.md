@@ -1,25 +1,58 @@
-# Ray Tracer in Java
-This repository contains a simple ray tracer implementation in Java, capable of rendering spheres in 3D space onto a 2D canvas. The result is saved as a PNG image file.
+# RayTracing in Java
 
+## Description
+This repository contains a ray tracing implementation in Java, capable of rendering 3D scenes with spheres, cylinders, and lighting effects. The project utilizes the JOML library for vector and matrix operations.
 
-# Features
-Basic ray tracing to compute intersections between rays and spheres.
-Adjustable canvas size and viewport dimensions.
-Ability to render multiple spheres with different colors.
+## Features
+- Ray tracing for rendering 3D objects
 
-## Instructions to Run the Code
-These instructions will work for all platforms (Windows, macOS, Linux) as long as you have Java installed and properly set up.
+- Support for spheres and cylinders
+
+- Lighting effects including ambient, diffuse, and specular lighting
+
+- Reflection and refraction handling
+
+- Stanford Bunny 3D rendering
+
+## Prerequisites
+
+- Java Development Kit (JDK) 8 or higher
+
+- JOML library (included in dependencies)
+
+  ## Installation
+- Clone the repository:  
+```bash
+  git clone https://github.com/7aidary/ICS415.git
 ```
-# Clone the Repository:
-git clone https://github.com/7aidary/ICS415.git
+  ## Navigate to the project directory:
+```bash
 cd ICS415
-
-# Compile the Code: Use javac to compile all .java files:
-javac *.java
-
-# Run the Code: Run the raytracing class using java:
-java raytracing
 ```
 
+## Install dependencies:
+```bash
+npm install
+```
 
-## Output: The rendered image will be saved in the current directory as output.png.
+## Running the Project
+
+To run the main rendering files, use the following commands:
+
+## Run FinalProject
+```bash
+javac -cp .:joml.jar FinalProject.java
+java -cp .:joml.jar FinalProject
+```
+
+## Run stanfordBunny3D
+```bash
+javac -cp .:joml.jar stanfordBunny3D.java
+java -cp .:joml.jar stanfordBunny3D
+```
+
+Replace joml.jar with the correct path to the JOML library if needed.
+
+## Output
+- You can find the generated image of spheres in "output6.png"
+- You can find the generated image of Stanford bunny in "output7.png"
