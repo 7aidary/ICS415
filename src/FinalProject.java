@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FinalProject1 {
+public class FinalProject {
 
     static final int WIDTH = 1200;
     static final int HEIGHT = 800;
@@ -21,11 +21,10 @@ public class FinalProject1 {
     private final List<Light> sceneLights;
     private final List<Sphere> spheres = new ArrayList<>();
 
-  //  private  List<Triangle> triangles;
     private  final List<Cylinder> cylinders=new ArrayList<>();
     private Camera camera;
     static Random rand = new Random();
-    public FinalProject1(List<Light> sceneLights, Camera camera ) {
+    public FinalProject(List<Light> sceneLights, Camera camera ) {
         System.out.println("Rendering...");
         int i=0;
         for (int a = -8; a < 14; a++) {
@@ -346,10 +345,7 @@ public class FinalProject1 {
         // Now create your camera with the position and rotation
         Camera camera = new Camera(lookFrom, rotation.rotateY(0.5));
 
-        //Matrix4d worldMatrix = new Matrix4d(viewMatrix.invert());
-        //worldMatrix.rotationY(-Math.PI/2.3).rotateX(0.15)
-       // Camera camera = new Camera(new Vector3D(new Matrix4d().scale(0.8F).transform(new Vector3D(3, 2, -10))), worldMatrix.rotationY(-Math.PI/2.3).rotateX(0.15));
-      //  Camera camera = new Camera(new Vector3D(0,0,0), new Matrix4d());
+
 
       /* try {
             triangles = OBJLoader.loadOBJ("Data/bunny.obj");
@@ -376,7 +372,7 @@ public class FinalProject1 {
         //lights.add(new Light.PointLight(0.6, new Vector3D(2, 1, 0)));
         lights.add(new Light.DirectionalLight(0.5, new Vector3D(0, 1, 0)));
 
-        FinalProject1 rayTracer = new FinalProject1(lights, camera);
+        FinalProject rayTracer = new FinalProject(lights, camera);
         rayTracer.render("output6.png");
     }
 

@@ -28,7 +28,7 @@ public class OBJLoader {
                 int v0 = Integer.parseInt(parts[1]) - 1;
                 int v1 = Integer.parseInt(parts[2]) - 1;
                 int v2 = Integer.parseInt(parts[3]) - 1;
-                Triangle triangle = new Triangle(vertices.get(v0), vertices.get(v1), vertices.get(v2),0x000000,
+                Triangle triangle = new Triangle(vertices.get(v0), vertices.get(v1), vertices.get(v2),0xCCE5FF,
                         50,
                         0.3,
                         0.2,
