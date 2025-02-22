@@ -179,25 +179,6 @@ public class FinalProject {
             }
         }
 
-       /* for (Triangle triangle : triangles) {
-            Double tValue = triangle.intersectRayTriangle(O, D);
-            if (tValue != null && tValue >= tMin && tValue <= tMax && tValue < closestT) {
-                closestT = tValue;
-                closestObject = triangle;
-            }
-        }*/
-
-        for (Cylinder cylinder : cylinders) {
-            double[] tValues = cylinder.intersectRayCylinder(O, D);
-            if (tValues != null) {
-                for (double t : tValues) {
-                    if (t >= tMin && t <= tMax && t < closestT) {
-                        closestT = t;
-                        closestObject = cylinder;
-                    }
-                }
-            }
-        }
         return new IntersectionResult(closestObject, closestT);
     }
 
@@ -347,29 +328,11 @@ public class FinalProject {
 
 
 
-      /* try {
-            triangles = OBJLoader.loadOBJ("Data/bunny.obj");
 
-        } catch (IOException e) {
-            System.err.println("Error loading model: " + e.getMessage());
-            return;
-        }
-*/
 
-       triangles.add(new Triangle(
-                new Vector3D(-50, 0, 0),
-                new Vector3D(50, 0, 0),
-                new Vector3D(0, 1, 50),
-                0x00FF00, // Green color
-                50,
-                0.3,
-                0.2,
-                1.3,
-                new Matrix4d()
-        ));
+
         List<Light> lights = new ArrayList<>();
         lights.add(new Light.AmbientLight(0.3));
-        //lights.add(new Light.PointLight(0.6, new Vector3D(2, 1, 0)));
         lights.add(new Light.DirectionalLight(0.5, new Vector3D(0, 1, 0)));
 
         FinalProject rayTracer = new FinalProject(lights, camera);
