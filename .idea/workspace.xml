@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment="arranging files">
+      <change afterPath="$PROJECT_DIR$/src/LightRaytracing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ShadowAndReflections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Transformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TransparencyAndRefraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StanfordBunny3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StanfordBunny3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +207,14 @@
       <option name="project" value="LOCAL؜" />
       <updated>1740232228250</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL؜-٠٠٠١٥" summary="arranging files">
+      <created>1741555848138</created>
+      <option name="number" value="٠٠٠١٥" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠١٥" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1741555848138</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -11,11 +11,7 @@ public class Camera {
     private static final int HEIGHT = 600;
 
 
-    public Camera(Vector3D position, Matrix4d rotation) {
-        this.position = position;
-        this.rotation4 = rotation;
 
-    }
 
     public Camera(Vector3D position, Matrix3d rotation) {
         this.position = position;
