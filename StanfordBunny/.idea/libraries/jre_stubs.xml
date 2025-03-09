@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jre-stubs">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/JOML-1.10.8/libs/jre-stubs.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
