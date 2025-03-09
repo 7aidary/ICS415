@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d837050b-d1e3-4b93-8ab9-e2660a31a56b" name="Changes" comment="arranging files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output6.png" beforeDir="false" afterPath="$PROJECT_DIR$/output6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FinalProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FinalProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StanfordBunny3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StanfordBunny3D.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +195,14 @@
       <option name="project" value="LOCAL؜" />
       <updated>1740230704423</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL؜-٠٠٠١٤" summary="arranging files">
+      <created>1740232228250</created>
+      <option name="number" value="٠٠٠١٤" />
+      <option name="presentableId" value="LOCAL؜-٠٠٠١٤" />
+      <option name="project" value="LOCAL؜" />
+      <updated>1740232228250</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -114,7 +114,6 @@ public class StanfordBunny3D {
 
         return new IntersectionResult(closestObject, closestT);
     }
-
     public double computeLighting(Vector3D P, Vector3D N, Vector3D V, int specular) {
         double intensity = 0.0;
         double t_max = 1;
