@@ -47,4 +47,4 @@ javac -cp .:joml.jar StanfordBunny3D.java
 java -cp .:joml.jar StanfordBunny3D
 ```
 ## Example output
-![Alt](https://github.com/7aidary/ICS415/blob/c8403c5356250770465f1d64aaa8a8dc1db75981/Project1/StanfordBunny/output7.png)
+<img src="https://github.com/7aidary/ICS415/blob/c8403c5356250770465f1d64aaa8a8dc1db75981/Project1/StanfordBunny/output7.png" alt="Stanford Bunny" width="800">
