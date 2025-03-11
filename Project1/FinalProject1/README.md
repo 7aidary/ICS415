@@ -27,7 +27,7 @@ This repository contains a ray tracing implementation in Java, capable of render
 ```
   ## Navigate to the project directory:
 ```bash
-cd ICS415
+cd ICS415/Project1/FinalProject
 ```
 
 ## Install dependencies:
