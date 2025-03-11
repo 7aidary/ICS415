@@ -4,7 +4,9 @@ This project implements a simple ray tracing system that loads and renders 3D mo
 
 ## Features
 - **OBJ file loading**: Load 3D models in `.obj` format.
+- **Extracting Triangle Vertices**: The Stanford Bunny `.obj` file is loaded as a list of `Vector3D` objects, which represent the vertices of the triangles.
 - **Ray tracing**: Perform ray tracing to calculate intersections between rays and the 3D model's geometry.
+- **Triangle intersection**: The ray tracing algorithm is updated to handle intersections with triangles and calculate lighting effects for each intersection.
 - **Stanford Bunny model**: Render the Stanford Bunny using the `bunny.obj` file.
 
 ## Prerequisites
