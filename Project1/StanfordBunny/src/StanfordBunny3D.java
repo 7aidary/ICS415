@@ -55,11 +55,7 @@ public class StanfordBunny3D {
         else if (result.closestObject instanceof Triangle) {
             Triangle triangle = (Triangle) result.closestObject;
             N = triangle.getNormal(); // Normal is precomputed
-        } else if (result.closestObject instanceof Cylinder) {
-            Cylinder cylinder = (Cylinder) result.closestObject;
-            N=cylinder.getNormal(P).normalize();
-
-        }
+        } 
         double lightIntensity = computeLighting(P, N, direction.negate(), result.closestObject.getSpecular());
         // Compute lighting and return the color
         int localColor = applyLighting(result.closestObject.getColor(), lightIntensity);
