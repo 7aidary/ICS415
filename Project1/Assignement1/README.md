@@ -11,12 +11,7 @@ This project implements a basic **ray tracing algorithm** in Java to render **3D
 - ✅ **Viewport Projection** – Maps canvas coordinates to a 3D viewport.  
 - ✅ **Image Output** – Generates an image file (`output.png`).  
 
-### Implementation Details  
-- **Canvas Size:** `800x800 pixels`  
-- **Objects:** Three spheres (Red, Green, Blue)  
-- **Projection Plane:** `Z = 1.0`  
-- **Background Color:** **White** (`#FFFFFF`)  
-- **Ray Casting:** Each pixel is traced to determine which sphere it intersects.  
+
 
 ### Setup & Usage  
 
