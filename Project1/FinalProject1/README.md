@@ -29,10 +29,18 @@ This repository contains a ray tracing implementation in Java, capable of render
 ```bash
 cd ICS415/Project1/FinalProject
 ```
+## Install JOML library:
 
-## Install dependencies:
+```xml
+<dependency>
+    <groupId>org.joml</groupId>
+    <artifactId>joml</artifactId>
+    <version>1.10.5</version>
+</dependency>
+Then run:
+```
 ```bash
-npm install
+mvn clean install
 ```
 
 ## Running the Project
