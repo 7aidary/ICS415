@@ -1,5 +1,5 @@
 # RayTracing in Java
-! [Ray Tracing Example] (FinalProject1/output6.png)
+![Ray Tracing Example]([FinalProject1/output6.png](https://github.com/7aidary/ICS415/blob/7990cab170d6b4926e3c3f3d4d6b5159f587bd7e/Project1/FinalProject1/output6.png))
 
 ## Description
 This repository contains a ray tracing implementation in Java, capable of rendering 3D scenes with spheres, and lighting effects. The project utilizes the JOML library for vector and matrix operations.
