@@ -47,9 +47,21 @@ The program creates a scene with spheres and light sources (ambient, point, and 
 
 ## How to Run
 
-1. Set up a Java development environment.
-2. Compile and run the `LightRaytracing` class.
-3. The output image will be saved as `output2.png` in the working directory.
+#### 1. Clone the Repository  
+```sh
+git clone https://github.com/7aidary/ICS415.git
+cd ICS415/Project1/Assignement2
+```
+
+#### 2. Compile the Java Code  
+```sh
+javac LightRaytracing.java
+```
+
+#### 3. Run the Program  
+```sh
+java LightRaytracing
+```
 
 ## Example Output
 ![Light effects](https://github.com/7aidary/ICS415/blob/71d012f14d13fdbcaf53df7b95f3f8ac9847959e/Project1/%E2%80%8F%E2%80%8FAssignement2/output2.png)
