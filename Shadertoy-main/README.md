@@ -12,3 +12,5 @@ you can see the Shadertoy program from here :https://www.shadertoy.com/view/Wf23
 - Random Spheres: Includes a grid of small random spheres, with varied materials, placed around a few larger spheres.
 - Anti-Aliasing: Uses jittering of pixel coordinates for smooth and high-quality rendering.
 - Gamma Correction: Corrects the output for better visual representation on standard displays
+## Output 
+![Alt]()
