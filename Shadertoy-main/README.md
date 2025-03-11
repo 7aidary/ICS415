@@ -13,4 +13,4 @@ you can see the Shadertoy program from here :https://www.shadertoy.com/view/Wf23
 - Anti-Aliasing: Uses jittering of pixel coordinates for smooth and high-quality rendering.
 - Gamma Correction: Corrects the output for better visual representation on standard displays
 ## Output 
-![Alt]()
+![Alt](https://github.com/7aidary/ICS415/blob/8601968ef33e202c358b2d993fb86a651c224b7e/Shadertoy-main/Shadertoy-img.png)
