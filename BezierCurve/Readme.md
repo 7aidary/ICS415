@@ -12,7 +12,7 @@ This is a simple **visual Bézier curve editor** written in HTML5 + JavaScript. 
 
 ## 📸 Demo
 
-![screenshot](https://github.com/7aidary/ICS415/blob/625684f0eb3351c278ec4e0a44654701b602a2de/BezierCurve/PolyBezier.png)  
+![screenshot](https://github.com/7aidary/ICS415/blob/115f7d612341ffca402494c0bfed0430e79065fa/BezierCurve/PolyBezier2.png)  
 
 ## 🧠 How It Works
 
