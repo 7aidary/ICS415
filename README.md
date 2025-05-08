@@ -11,3 +11,6 @@ This repository contains ICS415 projects in term 242
 
 ## Project 3: Voxel-Based Game Engine
 - Building a Minecraft-style voxel engine with block manipulation and 3D navigation using Java and OpenGL.
+
+## Project 4: Bézier Curve Editor (Poly Support)
+- A simple HTML/JS tool to draw, drag, and extend Bézier curves using control points.
