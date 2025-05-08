@@ -1,31 +1,47 @@
-Overview: A voxel-based engine inspired by Minecraft, implemented in Java using LWJGL (GLFW, OpenGL). Key features include:
+# Block World Engine (LWJGL + JOML)
 
-Chunked world representation with dynamic mesh generation and TextureAtlas support
+A basic 3D block world engine implemented in Java using LWJGL for rendering and JOML for math utilities.
 
-Raycast-based block picking and placement across chunk boundaries
+## Features
 
-Camera movement with pitch/yaw in camera space
+- Procedural chunk-based terrain generation
+- Real-time block placement and removal
+- Optimized mesh building (only visible block faces)
+- Basic camera movement and mouse look controls
+- Texture atlas support for efficient rendering
 
-Block adjacency updates and neighbor chunk mesh rebuilding for seamless edits
+## Dependencies
 
-Getting Started:
+- [LWJGL 3](https://www.lwjgl.org/)
+- [JOML](https://github.com/JOML-CI/JOML)
 
-Prerequisites: Java JDK 11 or above, Gradle, LWJGL 3.3.1.
+## Controls
 
-Building & Running:
+- `W`, `A`, `S`, `D`: Move forward, left, backward, right
+- Mouse movement: Look around
+- Scroll or zoom keys: Adjust camera distance
+- Click or keys (depending on implementation): Place or remove blocks
 
-Clone the repository and navigate to the MinecraftEngine folder:
+## How It Works
 
-```
-git clone <repo_url>
-cd MinecraftEngine
-```
-Launch via Gradle:
+The world is divided into 3D chunks. Each chunk contains a grid of blocks (like grass, dirt, stone, etc). Only the visible faces of blocks are sent to the GPU to improve performance. Texture coordinates are pulled from a shared atlas to reduce draw calls.
 
-```
-./gradlew run
-```
+Camera movement is smooth with acceleration and friction. The view matrix is updated every frame based on mouse and keyboard input.
 
-Controls: WASD to move, mouse to look, left-click to place blocks, right-click to remove.
+## ScreenShot
+![Alt text](relative/path/to/image.png)
 
-Enjoy exploring and extending your own block-based world!*
+## Setup
+
+1. Install a Java IDE (like IntelliJ or Eclipse)
+2. Add LWJGL and JOML to your project's dependencies
+3. Make sure you have a texture atlas image available
+4. Run the main application class
+
+## Notes
+
+- Rendering requires an OpenGL-compatible GPU
+- Ensure texture dimensions and atlas mappings match
+- Extendable for lighting, chunk saving, and world generation
+
+
