@@ -1,4 +1,4 @@
-# Block World Engine (LWJGL + JOML)
+# Like MinecraftEngine Engine (LWJGL + JOML)
 
 A basic 3D block world engine implemented in Java using LWJGL for rendering and JOML for math utilities.
 
