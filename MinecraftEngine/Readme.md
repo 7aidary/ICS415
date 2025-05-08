@@ -29,14 +29,29 @@ The world is divided into 3D chunks. Each chunk contains a grid of blocks (like 
 Camera movement is smooth with acceleration and friction. The view matrix is updated every frame based on mouse and keyboard input.
 
 ## ScreenShot
-![Alt text](relative/path/to/image.png)
+![Alt text](https://github.com/7aidary/ICS415/blob/ae109aef5d827d4470dc5b3a451a7dbba99e4a0d/MinecraftEngine/minecraft.png)
 
 ## Setup
 
-1. Install a Java IDE (like IntelliJ or Eclipse)
-2. Add LWJGL and JOML to your project's dependencies
-3. Make sure you have a texture atlas image available
-4. Run the main application class
+```bash
+# 1. Clone the repository
+git clone https://github.com/7aidary/ICS415.git
+
+```
+
+```bash
+--2. Navigate to the minecragtEngine directory
+cd ICS415/MinecraftEngine
+
+```
+###  3. Open the project in your Java IDE (e.g., IntelliJ or Eclipse)
+ 
+ ### 4. Add the following libraries to your project:
+     LWJGL (Lightweight Java Game Library)
+     JOML (Java OpenGL Math Library)
+
+
+### 5. Run the Main class to start the engine
 
 ## Notes
 
