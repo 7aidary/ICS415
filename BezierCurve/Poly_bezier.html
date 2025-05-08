@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Bézier Curve Editor – Poly Support</title>
+    <style>
+        body {
+            direction: rtl;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin-top: 10px;
+            cursor: crosshair;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Bézier Curve Editor – Poly Support</h2>
+<button onclick="addCurve()">➕ Add New Curve</button>
+<canvas id="canvas" width="2000" height="700"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Initial 4 control points
+    const points = [
+        { x: 100, y: 300 },
+        { x: 200, y: 100 },
+        { x: 400, y: 100 },
+        { x: 500, y: 300 }
+    ];
+
+    const radius = 8; // Radius of draggable points
+    let dragging = null; // Track which point is being dragged
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw control polygon (lines between control points)
+        ctx.strokeStyle = "#aaa";
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length; i++) {
+            ctx.lineTo(points[i].x, points[i].y);
+        }
+        ctx.stroke();
+
+        // Draw control points as red circles
+        ctx.fillStyle = "red";
+        for (let pt of points) {
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Draw all connected cubic Bézier curves
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        for (let i = 0; i + 3 < points.length; i += 3) {
+            ctx.beginPath();
+            for (let t = 0; t <= 1; t += 0.01) {
+                // Compute Bézier x and y for parameter t
+                const x = bezier(t, points[i].x, points[i + 1].x, points[i + 2].x, points[i + 3].x);
+                const y = bezier(t, points[i].y, points[i + 1].y, points[i + 2].y, points[i + 3].y);
+                if (t === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+    }
+
+    // Cubic Bézier formula: B(t) = (1 - t)^3*p0 + 3(1 - t)^2*t*p1 + 3(1 - t)*t^2*p2 + t^3*p3
+    function bezier(t, p0, p1, p2, p3) {
+        const u = 1 - t;
+        return u ** 3 * p0 +
+            3 * u ** 2 * t * p1 +
+            3 * u * t ** 2 * p2 +
+            t ** 3 * p3;
+    }
+
+    // When mouse is pressed, check if near any control point
+    canvas.addEventListener("mousedown", e => {
+        const mouse = getMouse(e);
+        for (let pt of points) {
+            const dx = pt.x - mouse.x;
+            const dy = pt.y - mouse.y;
+            if (dx * dx + dy * dy <= radius * radius) {
+                dragging = pt;
+                break;
+            }
+        }
+    });
+
+    // While dragging, update point position and redraw
+    canvas.addEventListener("mousemove", e => {
+        if (dragging) {
+            const mouse = getMouse(e);
+            dragging.x = mouse.x;
+            dragging.y = mouse.y;
+            draw();
+        }
+    });
+
+    // Stop dragging on mouse release
+    canvas.addEventListener("mouseup", () => {
+        dragging = null;
+    });
+
+    // Convert mouse event coordinates to canvas coordinates
+    function getMouse(e) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+
+    // Add new Bézier curve by appending 3 new control points
+    function addCurve() {
+        const last = points[points.length - 1];
+        const new1 = { x: last.x + 100, y: last.y - 100 };
+        const new2 = { x: last.x + 200, y: last.y + 100 };
+        const new3 = { x: last.x + 300, y: last.y };
+        points.push(new1, new2, new3);
+        draw();
+    }
+
+    draw(); // Initial render
+</script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
