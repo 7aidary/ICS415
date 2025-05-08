@@ -12,8 +12,7 @@ This is a simple **visual Bézier curve editor** written in HTML5 + JavaScript. 
 
 ## 📸 Demo
 
-![screenshot](screenshot.png)  
-*(Add your screenshot if desired)*
+![screenshot](https://github.com/7aidary/ICS415/blob/625684f0eb3351c278ec4e0a44654701b602a2de/BezierCurve/PolyBezier.png)  
 
 ## 🧠 How It Works
 
@@ -23,15 +22,17 @@ This is a simple **visual Bézier curve editor** written in HTML5 + JavaScript. 
   B(t) = (1 - t)^3 * p0  + 3 * (1 - t)^2 * t * p1 + 3 * (1 - t) * t^2 * p2 + t^3 * p3
 
 
+
 ## 🔧 How to Use
 
-1. Open `index.html` in any modern browser.
-2. Drag the red control points to reshape the curve.
-3. Click "➕ Add New Curve" to extend the path.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/7aidary/ICS415.git
+   cd BezierCurve/Poly_bezier
 
 
 ## 📁 Files
 
-- `index.html` – main UI and logic
+- `Poly_bezier.html` – main UI and logic
 - `screenshot.png` – image of the editor in action
 
